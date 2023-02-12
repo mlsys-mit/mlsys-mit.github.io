@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIT MLSys Reading Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Charles Jin">
+    <link href="../assets/css/reset.css" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
+    <script>
+    </script>
+  </head>
+
+  <body>
+    <div id="main" class="container">
+      <p id="title">
+        MIT MLSys Reading Group </br></br>
+      </p>
+    </div>
+
+    <div class="container">
+      <h1>Monarch: Expressive Structured Matrices for Efficient and Accurate Training.</h1>
+      <div class="group">
+        <p>
+          <b>Summary.</b> This paper proposes to transform dense matrix into factors of block sparse diagonal matrices (interspersed with permutation matrices) that 1) have fewer parameters than dense models and 2) can run faster than dense models. This paper is an important episode in the recent development of butterfly-matrix-inspired sparsity patterns that aims to accelerate training with sparsity, which used to be impossible without accuracy degradations. <br>
+        </p>
+        <ul>
+          <li>Would Monarch transformed weight matrices require more precision to represent? Past algorithms that improves computational efficiency such as Winograd convolution often requires higher precision and can thus interfere with quantization/low precision training.</li>
+
+          <li>Why is this (block-sparse matrix) better than unstructured-sparse matrix in terms of GPU performance? 1) weight matrices are dense within each weight block, so memory access pattern will be regular, enabling prefetching/cache reuse. 2) sparsity pattern is highly regular so easy to distribute work evenly across GPU cores, achieving good load balance.</li>
+
+          <li>What is a good metric for assessing the quality of a language model? Perplexity is not indicative of downstream task performance or utility of the language model used as a chatbot. But that is perhaps the only metric we have.</li>
+
+          <li>In the paper only a subset of dense matrices are converted to sparse ones. What happens if monarch transformation is applied to all weight matrices? Any rule of thumb for picking the right subset of matrices to apply Monarch transformation? </li>
+        </ul>
+      </div>
+    </div>
+    
+  </body>
+</html>

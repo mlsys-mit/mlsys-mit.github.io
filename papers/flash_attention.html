@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIT MLSys Reading Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Charles Jin">
+    <link href="../assets/css/reset.css" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
+    <script>
+    </script>
+  </head>
+
+  <body>
+    <div id="main" class="container">
+      <p id="title">
+        MIT MLSys Reading Group </br></br>
+      </p>
+    </div>
+
+    <div class="container">
+      <h1>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness.</h1>
+      <div class="group">
+        <p>
+          <b>Summary.</b> FlashAttention is an exact optimization to the original attention module. The core idea is to compute the NxN (N=sequence len) attention matrix in small tiles such that each tile easily fit within the fast but small memory (SRAM) on GPU. The benefit is that 1) doing so reduces access to the slow but large memory (HBM) thus improving runtime and 2) the full attention is never fully materialized thus improving memory efficiency.<br>
+        </p>
+        <ul>
+            <li>Though tiling is a commonplace optimization its application here is however not at all straightforward. The main challenge here actually arises from a critical implementation detail that is often absent from the mathematical description of the attention module. Specifically, for numerical stability, in practice, softmax for a vector of logits is calculated as: <br>
+              m=max(z) <br>
+              Softmax[z]_i=e^(z_i-m)/(sum_j(e^(z_i-m))) <br>
+            The main idea is to avoid exponentiating very large numbers while taking advantage of the translation-invariance of softmax operation. If we take a closer look at this formula we’ll see a nested set of 2 reductions over vector z, one to compute the max of z, the other to compute sum of exponentials. </li>
+            <li>Partitioning/tiling these two reductions simultaneously is non-trivial due to the dependence of sum on the result of max, and is therefore outside the purview of a traditional optimizing compiler. We speculate that this is the primary reason why flash attention is hard/difficult and thus not already done despite its simple/intuitive motivation.</li>
+            <li>In this work, we have seen that the objectives to achieve high performance and good numerical stability interact unfavorably with one another, making it hard to write performant and numerically stable code at the same time. Existing auto-schedulers (Halide, TVM) often do not consider optimizing for numerical stability. Can we introduce numerical stability as an explicit goal to exiting auto scheduling systems? </li>
+
+          </ul>
+      </div>
+    </div>
+    
+  </body>
+</html>
