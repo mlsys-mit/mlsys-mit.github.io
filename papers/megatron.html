@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MIT MLSys Discussion Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Charles Jin">
+    <link href="../assets/css/reset.css" rel="stylesheet">
+    <link href="../assets/css/index.css" rel="stylesheet">
+    <script>
+    </script>
+  </head>
+
+  <body>
+    <div id="main" class="container">
+      <p id="title">
+        <a href="http://www.mlsys.ai">MIT MLSys Discussion Group</a> </br></br>
+      </p>
+    </div>
+
+    <div class="container">
+      <h1>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</h1>
+      <div class="group">
+        <p>
+          <b>Summaries.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
+        </p>
+        <ul>
+          <li> <b>Model-system co-design.</b> Often in the case of ML/DL models, modifications that are inconsequential to model accuracy/quality can have profound implications on system performance. It’s instrumental to co-design both model architecture and underlying hardware/software systems. However, one problem is that the evaluation of model architecture modification can be extremely slow, especially in the case of large language models. How can we swiftly evaluate model architecture modifications? One possible solution is to study the effect of architectural modification on only small models, and rely on scaling laws to extrapolate their influence on larger ones.</li>
+
+          <li><b>Halide for distributed training exploration.</b> This paper explores several dimensions of system optimization: parallelism strategy (model v.s. data), locality of computation (avoiding inter-GPU communication) and redundant computation (layernorm and dropout). The problem is not unlike the one Halide/TVM aims to tackle. Perhaps adapting Halide to help rapidly design and experiment with distributed training strategies will be beneficial.</li>
+
+          <li><b>Model size limit.</b> We infer that this paper uses model parallelism within a single node of 8 GPUs, but data parallelism across nodes. One may wonder whether this sharding strategy puts a limit on the largest model it can train (the limit being that the model must fit within single node, which is roughly 40GB * 8 = 320GB for a reasonably SOTA A100 GPU setup). We think this is more than enough because [1] shows that a lot of large language models today do not have the optimal model size/dataset size ratio, and a 70B parameter model (takes up 140GB memory in fp16) can significantly outperform even 500B parameter model given the right amount of data. So given a fixed amount of data available to train language models, their size is unlikely to grow to an extent that cross-node model parallelism is needed.</li>
+
+          <li><b>LayerNorm placement.</b> This paper notes that when scaling the size of BERT model past a certain threshold, training instabilities occur. This issue can be resolved by placing the layer normalization module inside the residual connection — meaning that layer normalization can be skipped via residual connection if desired. This observation reminds us of the line of work that discusses outlier features in large language models associated with layer normalization. </li>
+        </ul><br>
+
+        <ol>
+          <li>Training Compute-Optimal Large Language Models, NeurIPS 2022. </li>
+          <li>BERT Busters: Outlier Dimensions that Disrupt Transformers, ACL 2021. </li>
+        </ol>
+      </div>
+    </div>
+
+  </body>
+</html>
