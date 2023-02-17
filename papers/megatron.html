@@ -22,7 +22,7 @@
       <h1>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</h1>
       <div class="group">
         <p>
-          <b>Summaries.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
+          <b>Summary.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
         </p>
         <ul>
           <li> <b>Model-system co-design.</b> Often in the case of ML/DL models, modifications that are inconsequential to model accuracy/quality can have profound implications on system performance. It’s instrumental to co-design both model architecture and underlying hardware/software systems. However, one problem is that the evaluation of model architecture modification can be extremely slow, especially in the case of large language models. How can we swiftly evaluate model architecture modifications? One possible solution is to study the effect of architectural modification on only small models, and rely on scaling laws to extrapolate their influence on larger ones.</li>
