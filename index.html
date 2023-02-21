@@ -7,7 +7,13 @@
     <meta name="author" content="Charles Jin">
     <link href="assets/css/reset.css" rel="stylesheet">
     <link href="assets/css/index.css" rel="stylesheet">
-    <script>
+    <script language="javascript">
+      window.onload = function () { 
+        var ul = document.querySelector('ul');
+        for (var i = ul.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+      };
     </script>
   </head>
 
@@ -28,13 +34,19 @@
         </p>
       </div>
 
-<!--     <div class="container">
-      <h1>Contributing Members</h1>
+    <div class="container">
+      <h1>Contributing Authors</h1>
       <div class="group">
-        <p>
-        </p>
+        <ul>
+          <li>Tian Jin</li>
+          <li>Alex Gu</li>
+          <li>Yuka Ikarashi</li>
+          <li>
+        </ul><br>
+        List order is randomized upon page load. <br>
+        For inquiries and suggestions, contact Tian Jin &lt;tianjin@[three-letter institute name].edu&gt;.
       </div>
-    </div> -->
+    </div>
 
     <div class="container">
       <h1>Past Discussions</h1>
