@@ -52,6 +52,12 @@
       <h1>Past Discussions</h1>
       <div class="group">
         <p>
+          <b>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</b><br>
+          <b>Summary.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
+          <a href="papers/megatron.html">[Discussion]</a>
+        </p>
+
+        <p>
           <b>Improving language models by retrieving from trillions of tokens</b><br>
           <b>Summary.</b> When generating outputs with language models, Retro searches and retrieves tokens from a database based on similarities with its input in the embedding space. Retro encodes and then incorporate the retrieved text into the intermediate representations of the language model via cross attention. The result is potentially to increase memory capacity of language model without significantly increasing the number of parameters.<br>
           <a href="papers/retro.html">[Discussion]</a>
