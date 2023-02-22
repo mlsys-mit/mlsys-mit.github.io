@@ -10,7 +10,7 @@
 
       gtag('config', 'G-3N1JWQ22YH');
     </script>
-    
+
     <meta charset="utf-8">
     <title>MIT MLSys Discussion Group</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <link href="assets/css/reset.css" rel="stylesheet">
     <link href="assets/css/index.css" rel="stylesheet">
     <script language="javascript">
-      window.onload = function () { 
+      window.onload = function () {
         var ul = document.querySelector('ul');
         for (var i = ul.children.length; i >= 0; i--) {
             ul.appendChild(ul.children[Math.random() * i | 0]);
@@ -67,6 +67,13 @@
     <div class="container">
       <h1>Past Discussions</h1>
       <div class="group">
+        <p>
+          <b>Training Compute-Optimal Large Language Models</b><br>
+          <b>Summary.</b> Existing large language models are under-trained.
+          The author empirically investigates how to optimally scale model size and training data size, resulting in Chinchilla -- a model that matches the performance of a 280B parameter model (Gopher) with an order of magnitude smaller size.<br>
+          <a href="papers/chinchilla.html">[Discussion]</a>
+        </p>
+
         <p>
           <b>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</b><br>
           <b>Summary.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
