@@ -69,6 +69,13 @@
       <h1>Past Discussions</h1>
       <div class="group">
         <p>
+          <b>Fast Inference from Transformers via Speculative Decoding</b><br>
+          <b>Summary.</b> Sampling from large autoregressive models is slow.
+          This paper suggests to use a small approximation model to propose sequences of tokens that will later be checked by a larger model.
+          This results in 2-3x speedup on tasks ranging from machine translation to text generation.<br>
+          <a href="papers/speculative_decoding.html">[Discussion]</a>
+        </p>
+        <p>
           <b>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</b><br>
           <b>Summary.</b> How to quantize the weights of a large language model in one-shot without retraining?
           The authors provide an effective and theoretically justified method.
