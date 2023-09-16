@@ -69,15 +69,21 @@
       <h1>Past Discussions</h1>
       <div class="group">
         <p>
-          <b>Unity: Accelerating DNN Training Through Joint Optimization of Algebraic Transformations and Parallelization</b>
+          <b>FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</b><br>
+          <b>Summary.</b> The attention layer is the main bottleneck for scaling transformers to longer sequences, which is important for language modeling as well as processing high-resolution images.
+          The author proposes several improvements upon FlashAttention v1, making the attention layer computation competitive with highly optimized matrix multiplication in terms of floating point operations per second on A100.<br>
+          <a href="papers/flash_attention2.html">[Discussion]</a>
+        </p>
+        <p>
+          <b>Unity: Accelerating DNN Training Through Joint Optimization of Algebraic Transformations and Parallelization</b><br>
           <b>Summary.</b> The authors argue that DNN training optimizers must consider algebraic transformations and parallelization simultaneously for optimal performance.
-           Joint optimization enables up to 3.6x speedup with reasonable optimization time budget.
+           Joint optimization enables up to 3.6x speedup with reasonable optimization time budget.<br>
           <a href="papers/unity.html">[Discussion]</a>
         </p>
         <p>
-          <b>Prefix-Tuning: Optimizing Continuous Prompts for Generation</b>
+          <b>Prefix-Tuning: Optimizing Continuous Prompts for Generation</b><br>
           <b>Summary.</b> This paper proposes the addition of virtual tokens as prefix to language model inputs. 
-          The authors train their embeddings to guide models to perform specific tasks, such as converting tables to words or summarization. 
+          The authors train their embeddings to guide models to perform specific tasks, such as converting tables to words or summarization. <br>
           <a href="papers/prefix_tuning.html">[Discussion]</a>
         </p>
         <p>
