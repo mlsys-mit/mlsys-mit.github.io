@@ -69,56 +69,61 @@
       <h1>Past Discussions</h1>
       <div class="group">
         <p>
+          <b>DeepSeek V3 Technical Report</b><br>
+          <b>Summary.</b> DeepSeek V3 tehnical report describes an amzing number engineering efforts to improve the training and inference performance of LLMs.
+          <a href="papers/deepseek_v3.html">[Discussion Highlights]</a>
+        </p>
+        <p>
           <b>FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</b><br>
           <b>Summary.</b> The attention layer is the main bottleneck for scaling transformers to longer sequences, which is important for language modeling as well as processing high-resolution images.
           The author proposes several improvements upon FlashAttention v1, making the attention layer computation competitive with highly optimized matrix multiplication in terms of floating point operations per second on A100.<br>
-          <a href="papers/flash_attention2.html">[Discussion]</a>
+          <a href="papers/flash_attention2.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Unity: Accelerating DNN Training Through Joint Optimization of Algebraic Transformations and Parallelization</b><br>
           <b>Summary.</b> The authors argue that DNN training optimizers must consider algebraic transformations and parallelization simultaneously for optimal performance.
            Joint optimization enables up to 3.6x speedup with reasonable optimization time budget.<br>
-          <a href="papers/unity.html">[Discussion]</a>
+          <a href="papers/unity.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Prefix-Tuning: Optimizing Continuous Prompts for Generation</b><br>
           <b>Summary.</b> This paper proposes the addition of virtual tokens as prefix to language model inputs. 
           The authors train their embeddings to guide models to perform specific tasks, such as converting tables to words or summarization. <br>
-          <a href="papers/prefix_tuning.html">[Discussion]</a>
+          <a href="papers/prefix_tuning.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Chat with Philippe Tillet, Author of Triton</b><br>
           <b>Summary.</b> Triton is an open source python library for writing highly efficient GPU code.
           It requires no CUDA expertise and its performance is on-par with expert hand-tuned kernel libraries.<br>
-          <a href="papers/tillet.html">[Discussion]</a>
+          <a href="papers/tillet.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Fast Inference from Transformers via Speculative Decoding</b><br>
           <b>Summary.</b> Sampling from large autoregressive models is slow.
           This paper suggests to use a small approximation model to propose sequences of tokens that will later be checked by a larger model.
           This results in 2-3x speedup on tasks ranging from machine translation to text generation.<br>
-          <a href="papers/speculative_decoding.html">[Discussion]</a>
+          <a href="papers/speculative_decoding.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers</b><br>
           <b>Summary.</b> How to quantize the weights of a large language model in one-shot without retraining?
           The authors provide an effective and theoretically justified method.
           Their results demonstrate the feasibility of quantizing 175B models to 3/4 bits in a matter of hours with negligible loss of language modeling/few-shots learning ability.<br>
-          <a href="papers/gptq.html">[Discussion]</a>
+          <a href="papers/gptq.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Cramming: Training a Language Model on a Single GPU in One Day</b><br>
           <b>Summary.</b> Can you pretrain a BERT model on a single 2080ti GPU in 1 day?
           The authors suggest yes.
           The authors find that parameter count is the deciding factor for predicting model performance in low compute resource regime and recommend training/data/architecture modifications to improve pretraining in the low compute resource regime.<br>
-          <a href="papers/cramming.html">[Discussion]</a>
+          <a href="papers/cramming.html">[Discussion Highlights]</a>
         </p>
         <p>
           <b>Efficiently Modeling Long Sequences with Structure</b><br>
           <b>Summary.</b> The authors use state space models, a well-known concept in control theory, to address long range dependencies.
           The challenge lies in making state space models work effectively and efficiently.
           The proposed solution beats transformer models of the same size on long range arena, and has desirable properties such as faster autoregressive generation (than transformer) and the ability to handle sampling resolution change for continuous signals without retraining.<br>
-          <a href="papers/S4.html">[Discussion]</a>
+          <a href="papers/S4.html">[Discussion Highlights]</a>
         </p>
 
         <p>
@@ -126,38 +131,38 @@
           <b>Summary.</b> How to crowd-source training of large language models, especially when network conditions of nodes in the compute network is highly heterogeneous?
           The author formalized this problem by modeling the network communication cost of decentralized training, and proposed a solution that minimizes the communication overhead.
           The proposed solution show impressive performance results: 3.8-4.8x faster than SOTA alternatives designed for homogeneous network conditions.<br>
-          <a href="papers/decentralized.html">[Discussion]</a>
+          <a href="papers/decentralized.html">[Discussion Highlights]</a>
         </p>
 
         <p>
           <b>Training Compute-Optimal Large Language Models</b><br>
           <b>Summary.</b> Existing large language models are under-trained.
           The author empirically investigates how to optimally scale model size and training data size, resulting in Chinchilla -- a model that matches the performance of a 280B parameter model (Gopher) with an order of magnitude smaller size.<br>
-          <a href="papers/chinchilla.html">[Discussion]</a>
+          <a href="papers/chinchilla.html">[Discussion Highlights]</a>
         </p>
 
         <p>
           <b>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</b><br>
           <b>Summary.</b> The paper discusses strategies (mostly on partitioning models across different GPUs) and considerations (mostly on avoiding commutations between GPUs) that enables distributed training of an extremely large language models by contemporary standards (8 billion parameters). This work influenced training system designs for recent large language models.<br>
-          <a href="papers/megatron.html">[Discussion]</a>
+          <a href="papers/megatron.html">[Discussion Highlights]</a>
         </p>
 
         <p>
           <b>Improving language models by retrieving from trillions of tokens</b><br>
           <b>Summary.</b> When generating outputs with language models, Retro searches and retrieves tokens from a database based on similarities with its input in the embedding space. Retro encodes and then incorporate the retrieved text into the intermediate representations of the language model via cross attention. The result is potentially to increase memory capacity of language model without significantly increasing the number of parameters.<br>
-          <a href="papers/retro.html">[Discussion]</a>
+          <a href="papers/retro.html">[Discussion Highlights]</a>
         </p>
 
         <p>
           <b>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</b><br>
           <b>Summary.</b> FlashAttention is an exact optimization to the original attention module. The core idea is to compute the NxN (N=sequence len) attention matrix in small tiles such that each tile easily fit within the fast but small memory (SRAM) on GPU. The benefit is that 1) doing so reduces access to the slow but large memory (HBM) thus improving runtime and 2) the full attention is never fully materialized thus improving memory efficiency.<br>
-          <a href="papers/flash_attention.html">[Discussion]</a>
+          <a href="papers/flash_attention.html">[Discussion Highlights]</a>
         </p>
 
         <p>
           <b>Monarch: Expressive Structured Matrices for Efficient and Accurate Training</b><br>
           <b>Summary.</b> This paper proposes to transform dense matrix into factors of block sparse diagonal matrices (interspersed with permutation matrices) that 1) have fewer parameters than dense models and 2) can run faster than dense models. This paper is an important episode in the recent development of butterfly-matrix-inspired sparsity patterns that aims to accelerate training with sparsity, which used to be impossible without accuracy degradations. <br>
-          <a href="papers/monarch.html">[Discussion]</a>
+          <a href="papers/monarch.html">[Discussion Highlights]</a>
         </p>
       </div>
     </div>
